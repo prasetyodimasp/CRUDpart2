@@ -1,0 +1,24 @@
+{
+  "name": "crud_node",
+  "version": "1.0.0",
+  "description": "aplikasi CRUD",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prasetyodimasp/CRUDpart2.git"
+  },
+  "keywords": [
+    "rest",
+    "api",
+    "node.js"
+  ],
+  "author": "prasetyodimasp",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/prasetyodimasp/CRUDpart2/issues"
+  },
+  "homepage": "https://github.com/prasetyodimasp/CRUDpart2#readme"
+}
