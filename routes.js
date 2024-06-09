@@ -6,4 +6,6 @@ module.exports = function (app) {
   app.route("/").get(controller.index);
 
   app.route("/tampil").get(controller.tampilsemuadata);
+
+  app.route("/tampil/:id").get(controller.tampilberdasarkanid);
 };

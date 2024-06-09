@@ -12,10 +12,25 @@ exports.tampilsemuadata = function (req, res) {
   connection.query("SELECT * FROM mahasiswa", function (error, rows, fileds) {
     console.log(rows);
     if (error) {
-      connection.log(error);
       console.log(error);
     } else {
       response.ok(rows, res);
     }
   });
+};
+
+// menampilkan data berdasarkan id mahasiswa
+exports.tampilberdasarkanid = function (req, res) {
+  let id = req.params.id;
+  connection.query(
+    "SELECT * FROM mahasiswa WHERE id = ?",
+    [id],
+    function (error, rows, fileds) {
+      if (error) {
+        console.log(error);
+      } else {
+        response.ok(rows, res);
+      }
+    }
+  );
 };
