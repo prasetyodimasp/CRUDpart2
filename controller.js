@@ -8,7 +8,7 @@ exports.index = function (req, res) {
 };
 
 //menampilkan data mahasiswa
-exports.tampilsemuadata = function (req, res) {
+exports.get = function (req, res) {
   connection.query("SELECT * FROM mahasiswa", function (error, rows, fileds) {
     console.log(rows);
     if (error) {
@@ -20,7 +20,7 @@ exports.tampilsemuadata = function (req, res) {
 };
 
 // menampilkan data berdasarkan id mahasiswa
-exports.tampilberdasarkanid = function (req, res) {
+exports.getId = function (req, res) {
   let id = req.params.id;
   connection.query(
     "SELECT * FROM mahasiswa WHERE id = ?",
@@ -36,7 +36,7 @@ exports.tampilberdasarkanid = function (req, res) {
 };
 
 // menmbahkan data mahasiswa
-exports.tambahMahasiswa = function (req, res) {
+exports.post = function (req, res) {
   var nim = req.body.nim;
   var nama_mahasiswa = req.body.nama_mahasiswa;
   var jurusan = req.body.jurusan;
@@ -55,7 +55,7 @@ exports.tambahMahasiswa = function (req, res) {
 };
 
 //mengubah data berdasarkan id
-exports.ubahData = function (req, res) {
+exports.put = function (req, res) {
   var id = req.body.id;
   var nim = req.body.nim;
   var nama_mahasiswa = req.body.nama_mahasiswa;
@@ -69,6 +69,22 @@ exports.ubahData = function (req, res) {
         console.log(error);
       } else {
         response.ok("berhasil ubah data", res);
+      }
+    }
+  );
+};
+
+// menghapus data mahasiswa berdasarkan id
+exports.delete = function (req, res) {
+  var id = req.body.id;
+  connection.query(
+    "DELETE FROM mahasiswa WHERE id=?",
+    [id],
+    function (error, rows, fileds) {
+      if (error) {
+        console.log(error);
+      } else {
+        response.ok("berhasil manghapus data", res);
       }
     }
   );

@@ -5,11 +5,13 @@ module.exports = function (app) {
 
   app.route("/").get(controller.index);
 
-  app.route("/tampil").get(controller.tampilsemuadata);
+  app.route("/get").get(controller.get);
 
-  app.route("/tampil/:id").get(controller.tampilberdasarkanid);
+  app.route("/get/:id").get(controller.getId);
 
-  app.route("/tambah").post(controller.tambahMahasiswa);
+  app.route("/post").post(controller.post);
 
-  app.route("/ubah").put(controller.ubahData);
+  app.route("/put").put(controller.put);
+
+  app.route("/delete").delete(controller.delete);
 };
