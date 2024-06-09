@@ -10,4 +10,6 @@ module.exports = function (app) {
   app.route("/tampil/:id").get(controller.tampilberdasarkanid);
 
   app.route("/tambah").post(controller.tambahMahasiswa);
+
+  app.route("/ubah").put(controller.ubahData);
 };
