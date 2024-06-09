@@ -34,3 +34,22 @@ exports.tampilberdasarkanid = function (req, res) {
     }
   );
 };
+
+// menmbahkan data mahasiswa
+exports.tambahMahasiswa = function (req, res) {
+  var nim = req.body.nim;
+  var nama_mahasiswa = req.body.nama_mahasiswa;
+  var jurusan = req.body.jurusan;
+
+  connection.query(
+    "INSERT INTO mahasiswa (nim, nama_mahasiswa, jurusan) VALUES(?,?,?)",
+    [nim, nama_mahasiswa, jurusan],
+    function (error, rows, fileds) {
+      if (error) {
+        console.log(error);
+      } else {
+        response.ok("Berhasil menambahkan data", res);
+      }
+    }
+  );
+};
